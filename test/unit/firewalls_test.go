@@ -269,10 +269,10 @@ func TestDefaultFirewall_Get(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotNil(t, defaultFirewalls)
 
-	assert.Equal(t, 101, defaultFirewalls.DefaultFirewallIDs.NodeBalancer)
-	assert.Equal(t, 100, defaultFirewalls.DefaultFirewallIDs.Linode)
-	assert.Equal(t, 200, defaultFirewalls.DefaultFirewallIDs.PublicInterface)
-	assert.Equal(t, 200, defaultFirewalls.DefaultFirewallIDs.VPCInterface)
+	assert.Equal(t, 101, *defaultFirewalls.DefaultFirewallIDs.NodeBalancer)
+	assert.Equal(t, 100, *defaultFirewalls.DefaultFirewallIDs.Linode)
+	assert.Equal(t, 200, *defaultFirewalls.DefaultFirewallIDs.PublicInterface)
+	assert.Equal(t, 200, *defaultFirewalls.DefaultFirewallIDs.VPCInterface)
 }
 
 func TestDefaultFirewall_Update(t *testing.T) {
@@ -299,8 +299,8 @@ func TestDefaultFirewall_Update(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotNil(t, defaultFirewalls)
 
-	assert.Equal(t, 1, defaultFirewalls.DefaultFirewallIDs.NodeBalancer)
-	assert.Equal(t, 1, defaultFirewalls.DefaultFirewallIDs.Linode)
-	assert.Equal(t, 1, defaultFirewalls.DefaultFirewallIDs.PublicInterface)
-	assert.Equal(t, 1, defaultFirewalls.DefaultFirewallIDs.VPCInterface)
+	assert.Equal(t, 1, *defaultFirewalls.DefaultFirewallIDs.NodeBalancer)
+	assert.Equal(t, 1, *defaultFirewalls.DefaultFirewallIDs.Linode)
+	assert.Equal(t, 1, *defaultFirewalls.DefaultFirewallIDs.PublicInterface)
+	assert.Equal(t, 1, *defaultFirewalls.DefaultFirewallIDs.VPCInterface)
 }
