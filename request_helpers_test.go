@@ -144,6 +144,26 @@ func TestRequestHelpers_putNoOptions(t *testing.T) {
 	}
 }
 
+func TestRequestHelpers_putNoResponseBody(t *testing.T) {
+	client := testutil.CreateMockClient(t, NewClient)
+
+	httpmock.RegisterRegexpResponder(
+		"PUT",
+		testutil.MockRequestURL("/foo/bar"),
+		testutil.MockRequestBodyValidate(t, testResponse, nil),
+	)
+
+	err := doPUTRequestNoResponseBody(
+		context.Background(),
+		client,
+		"/foo/bar",
+		testResponse,
+	)
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestRequestHelpers_delete(t *testing.T) {
 	client := testutil.CreateMockClient(t, NewClient)
 
